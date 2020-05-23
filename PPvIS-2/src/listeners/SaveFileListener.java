@@ -1,24 +1,19 @@
 package listeners;
 
-import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-
-import org.eclipse.swt.widgets.FileDialog;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Shell;
-import org.eclipse.swt.widgets.Table;
-
-import controller.Controller;
-import controller.PageController;
+import controller.*;
+import parser.DOMParser;
 import view.ViewTable;
+
+import org.eclipse.swt.*;
+import org.eclipse.swt.events.*;
+import org.eclipse.swt.widgets.*;
 
 public class SaveFileListener extends SelectionAdapter
 {
-    PageController pageControl=null;
-    Table tableView= null;
-    Controller controller= null;
-    Label pagesLabel=null;
+    PageController pageControl;
+    Table tableView;
+    Controller controller;
+    Label pagesLabel;
 
     public SaveFileListener(Table table, PageController tempValue, Controller tempController, Label tempLabel)
     {
@@ -34,8 +29,11 @@ public class SaveFileListener extends SelectionAdapter
         dialog.setFilterNames(new String[]{"XML files"});
         dialog.setFilterExtensions(new String[]{"*.xml"});
         dialog.open();
-        controller.save(dialog.getFileName());
+        
+        DOMParser parser = new DOMParser();
+        parser.setTable(controller.getTable());
+        parser.save(dialog.getFileName());
         ViewTable view = new ViewTable();
-        view.seeTable(tableView, pageControl.getPage(), controller.getTable(),pagesLabel);
+        view.seeTable(tableView, pageControl, controller.getTable(),pagesLabel);
     }
 }

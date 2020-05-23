@@ -1,9 +1,19 @@
 package controller;
 
-
-public class PageController {
-
-	int page=0;
+public class PageController 
+{
+	private int page=0;
+	private int numberOfElement=10;
+	
+	public void setNumberOfELement(int number)
+	{
+		numberOfElement= number;
+	}
+	
+	public int getNumberOfELement()
+	{
+		return numberOfElement;
+	}
 	
 	public int getPage()
 	{
@@ -17,11 +27,8 @@ public class PageController {
 
     public void nextPage(Controller controller)
     {
-        if(page< controller.getTable().size()/10)    
-        {
+        if(page< controller.getTable().size()/ numberOfElement)    
             page++;
-        }
-        
     }
 
     public void previousPage()
@@ -32,13 +39,13 @@ public class PageController {
 
     public void lastPage(Controller controller)
     {
-        if(controller.getTable().size()%10==0)
+        if(controller.getTable().size()% numberOfElement==0)
         {
-            page = controller.getTable().size() / 10 - 1;
+            page = controller.getTable().size() /  numberOfElement - 1;
         }
         else
         {
-            page = controller.getTable().size() / 10;
+            page = controller.getTable().size() /  numberOfElement;
         }
     }
 

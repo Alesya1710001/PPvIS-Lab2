@@ -1,15 +1,11 @@
 package listeners;
 
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Table;
-import org.eclipse.swt.widgets.Text;
-
-import controller.Controller;
-import controller.PageController;
 import model.Student;
+import controller.*;
 import view.ViewTable;
+
+import org.eclipse.swt.events.*;
+import org.eclipse.swt.widgets.*;
 
 public class AddNoteListener extends SelectionAdapter
 {
@@ -28,8 +24,10 @@ public class AddNoteListener extends SelectionAdapter
         arrayOfText=tempArrayOfText;
     }
 
-    public void widgetSelected(SelectionEvent event1) {
+    public void widgetSelected(SelectionEvent event1) 
+    {
         Student newItem = new Student();
+        
         newItem.setStudentName(arrayOfText[0].getText());
         newItem.setFatherName(arrayOfText[1].getText());
         newItem.setMotherName(arrayOfText[2].getText());
@@ -41,6 +39,6 @@ public class AddNoteListener extends SelectionAdapter
         controller.setItem(newItem);
 
         ViewTable view = new ViewTable();
-        view.seeTable(tableView, pageControl.getPage(), controller.getTable(),pagesLabel);
+        view.seeTable(tableView, pageControl, controller.getTable(),pagesLabel);
     }
 }

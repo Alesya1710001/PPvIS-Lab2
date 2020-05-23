@@ -1,20 +1,18 @@
 package listeners;
 
-import org.eclipse.swt.events.SelectionAdapter;
-import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.swt.widgets.Label;
-import org.eclipse.swt.widgets.Table;
-
-import controller.Controller;
-import controller.PageController;
+import controller.*;
 import view.ViewTable;
+
+import org.eclipse.swt.events.*;
+import org.eclipse.swt.widgets.*;
 
 public class NextPageListener extends SelectionAdapter
 {
-    PageController pageControl=null;
-    Table tableView= null;
-    Controller controller= null;
-    Label pagesLabel=null;
+    PageController pageControl;
+    Table tableView;
+    Controller controller;
+    Label pagesLabel;
+    
     public NextPageListener(Table table, PageController tempValue, Controller tempController, Label tempLabel)
     {
         tableView=table;
@@ -23,9 +21,10 @@ public class NextPageListener extends SelectionAdapter
         pageControl=tempValue;
     }
 
-    public void widgetSelected(SelectionEvent event1) {
+    public void widgetSelected(SelectionEvent event1) 
+    {
         pageControl.nextPage(controller);
         ViewTable view=new ViewTable();
-        view.seeTable(tableView,pageControl.getPage(),controller.getTable(),pagesLabel);
+        view.seeTable(tableView,pageControl,controller.getTable(),pagesLabel);
     }
 }

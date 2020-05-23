@@ -1,12 +1,7 @@
 package model;
 
-
-import org.eclipse.swt.widgets.Shell;
-
-
-public class Student {
-
-	protected Shell shell;
+public class Student 
+{
 	private String studentName;
 	private String fatherName;
 	private String motherName;
@@ -15,63 +10,73 @@ public class Student {
 	private Integer numberOfSisters;
 	private Integer numberOfBrothers;
 	
-	
-	public void setStudentName(String studentName) {
+	public void setStudentName(String studentName) 
+	{
         this.studentName = studentName;
     }
 
-    public String getStudentName() {
+    public String getStudentName() 
+    {
         return studentName;
     }
     
-    public void setFatherName(String fatherName) {
+    public void setFatherName(String fatherName) 
+    {
         this.fatherName = fatherName;
     }
 
-    public String getFatherName() {
+    public String getFatherName() 
+    {
         return fatherName;
     }
     
-    public void setMotherName(String motherName) {
+    public void setMotherName(String motherName) 
+    {
         this.motherName = motherName;
     }
 
-    public String getMotherName() {
+    public String getMotherName() 
+    {
         return motherName;
     }
     
-    public void setFatherMoney(Integer fatherMoney) {
+    public void setFatherMoney(Integer fatherMoney) 
+    {
         this.fatherMoney = fatherMoney;
     }
 
-    public Integer getFatherMoney() {
+    public Integer getFatherMoney() 
+    {
         return fatherMoney;
     }
 
-    public void setMotherMoney(Integer motherMoney) {
+    public void setMotherMoney(Integer motherMoney) 
+    {
         this.motherMoney = motherMoney;
     }
 
-    public Integer getMotherMoney() {
+    public Integer getMotherMoney() 
+    {
         return motherMoney;
     }
     
-    public void setNumberOfSisters(Integer numberOfSisters) {
+    public void setNumberOfSisters(Integer numberOfSisters) 
+    {
         this.numberOfSisters = numberOfSisters;
     }
 
-    public Integer getNumberOfSisters() {
+    public Integer getNumberOfSisters() 
+    {
         return numberOfSisters;
     }
     
-    public void setNumberOfBrothers(Integer numberOfBrothers) {
+    public void setNumberOfBrothers(Integer numberOfBrothers) 
+    {
         this.numberOfBrothers = numberOfBrothers;
     }
 
-    public Integer getNumberOfBrothers() {
+    public Integer getNumberOfBrothers() 
+    {
         return numberOfBrothers;
     }
-
-
-
 }
